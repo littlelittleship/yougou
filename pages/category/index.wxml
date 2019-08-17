@@ -1,0 +1,44 @@
+<view class="container">
+    <!-- 搜索部分 -->
+    <view class="search">
+        <view class="search-content">
+            <icon type="search" size="16" color="#ccc"/>
+            <text>搜索</text>
+        </view>
+    </view>
+
+    <!-- tab栏切换：循环生成标题每一项，用current===index来判断是否添加样式，
+    内容部分用current做下标循环，注意动态class的写法 -->
+    <view class="navs">
+        <view class="navs_left">
+            <view class="navs_left_item  {{current === index? 'active' : ''}}"
+            wx:for="{{ nav_item_list }}"
+            wx:key="{{ index }}"
+            bindtap="handleNacItemClick"
+            data-index="{{ index }}">
+            {{ item.cat_name}}
+            </view>
+        </view>
+        <view class="navs_right">
+          <view class="nav_right_content"
+          wx:for="{{ nav_item_list[current].children }}"
+          wx:key="{{ index }}">
+              <view class="brands">
+                <text>/</text>
+                {{ item.cat_name }}
+                <text>/</text>
+              </view>
+              <view class="brand_item">
+                <view class="brand_item_product"
+                wx:for="{{ item.children }}"
+                wx:key="{{ index }}">
+                  <image
+                  src="{{ item.cat_icon }}"
+                 ></image>
+                  <view>{{ item.cat_name}}</view>
+                </view>
+              </view>
+          </view>
+        </view>
+    </view>
+</view>

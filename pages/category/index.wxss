@@ -1,0 +1,116 @@
+/* 该页面重点：左右两边都能滚动 */
+/* 需要做的：先写好静态页面，给大容器设置绝对定位，给需要滚动的部分绝对定位，
+一定要注意这么设置之后要设置页面的宽高，左边的指定宽，高继承100%，右边的
+同时写left和right，高也是100% 。最重要的，设置绝对定位之后，父元素的宽度由
+内容撑开，所以主页面要有width=100%*/
+.container{
+  position:absolute;
+  top:0rpx;
+  bottom:0;
+  width:100%;
+  padding-top:100rpx;
+}
+.search{
+  padding:20rpx;
+  background: #ff2b4a;
+  width:100%;
+  box-sizing: border-box;
+  z-index:10;
+  position: fixed;
+  top:0;
+  left:0;
+}
+.search-content{
+  font-size: 16px;
+  color:#ccc;
+  height:60rpx;
+  background: #fff;
+  border-radius:4px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.navs{
+  /* display: flex; */
+  padding-top:10px;
+  height:100%;
+  position: relative;
+}
+.navs_left{
+  width:200rpx;
+  position: absolute;
+  height:100%;
+  top:0;
+  left:0;
+  overflow: scroll;
+}
+.navs_left_item{
+  /* width:200rpx; */
+  font-size: 16px;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #f6f6f6;
+  border-bottom:1px solid #eee;
+}
+.active{
+  color:#ff2b4a;
+  background: #fff;
+  position: relative
+}
+.active::before{
+  display: block;
+  content: '';
+  width:4px;
+  height:60rpx;
+  background: #ff2b4a;
+  z-index: 100;
+  position: absolute;
+  top:20rpx;
+  left:0rpx
+}
+
+.navs_right{
+  flex: 1;
+  position: absolute;
+  /* z-index: 200; */
+  height: 100%;
+  left:200rpx;
+  right:0;
+  overflow: scroll;
+  box-sizing: border-box
+}
+.brands{
+  text-align: center
+}
+.brands text{
+  color:red;
+  margin:0 20rpx;
+}
+.brand_item{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color:#ccc;
+  text-align: center;
+
+}
+.brand_item_product{
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.brand_item image{
+  width:120rpx;
+  height: 120rpx;
+}
+.brand_item text{
+  width:100%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}

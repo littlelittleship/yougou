@@ -1,4 +1,54 @@
 <!--index.wxml-->
 <view class="container">
-  首页
+    <!-- 搜索部分 -->
+    <view class="search">
+        <view class="search-content">
+            <icon type="search" size="16" color="#ccc"/>
+            <text>搜索</text>
+        </view>
+    </view>
+
+    <!-- 轮播图部分 -->
+    <view class="carousel">
+        <swiper indicator-dots
+        autoplay interval="5000"
+        duration="1000">
+          <block wx:for="{{carousel_imglist_list}}"
+          wx:key="{{ index }}">
+            <swiper-item>
+              <image src="{{item.image_src}}" class="slide-image" mode="aspectFill" />
+            </swiper-item>
+          </block>
+        </swiper>
+    </view>
+
+    <!-- 分类导航栏 -->
+    <view class="category">
+        <image src = "{{ item.image_src }}"
+        wx:for="{{ category_list_images }}"
+        wx:key="{{ index }}"></image>
+    </view>
+
+    <!-- 楼层部分 -->
+    <view class="floor"
+    wx:for="{{ floor_images }}"
+    wx:key="{{ index }}">
+        <view class="floor_title">
+            <image 
+            src="{{ item.floor_title.image_src }}"></image>
+        </view>
+        <view class="floor_content">
+            <view class="floor_left">
+              <image src="{{ item.product_list[0].image_src }}"></image>
+            </view>
+            <view class="floor_right">
+              <image 
+              wx:if="{{ index>0 }}"
+              src="{{item.image_src}}"
+              wx:for="{{ item.product_list }}"
+              wx:key="{{index}}"></image>
+              
+            </view>
+        </view>
+    </view>
 </view>
