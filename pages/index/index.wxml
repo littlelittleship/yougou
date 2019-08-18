@@ -1,12 +1,14 @@
 <!--index.wxml-->
 <view class="container">
     <!-- 搜索部分 -->
-    <view class="search">
+    <!-- <view class="search">
         <view class="search-content">
             <icon type="search" size="16" color="#ccc"/>
             <text>搜索</text>
         </view>
-    </view>
+    </view> -->
+
+    <search/>
 
     <!-- 轮播图部分 -->
     <view class="carousel">

@@ -1,0 +1,6 @@
+ <view class="search">
+      <view class="search-content">
+          <icon type="search" size="16" color="#ccc"/>
+          <text>搜索</text>
+      </view>
+  </view>

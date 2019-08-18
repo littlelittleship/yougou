@@ -1,0 +1,20 @@
+.search{
+  padding:20rpx;
+  background: #ff2b4a;
+  width:100%;
+  box-sizing: border-box;
+  z-index:10;
+  position: fixed;
+  top:0;
+  left:0;
+}
+.search-content{
+  font-size: 16px;
+  color:#ccc;
+  height:60rpx;
+  background: #fff;
+  border-radius:4px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
