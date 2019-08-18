@@ -62,3 +62,8 @@
 .product_price text{
   font-size: 20px;
 }
+
+.bottom{
+  color:#666;
+  text-align: center;
+}

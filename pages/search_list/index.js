@@ -9,8 +9,42 @@ Page({
    */
   data: {
     current:0,
-    product_list:[]
+    product_list:[],
+    pagenum:1,
+    pagesize:10,
+    hasUnderline:true
+  },
 
+  /**
+   * 封装请求数据的方法
+   */
+  getData(){
+    request({
+      url: "/goods/search",
+      data: {
+        query: "曲面电视",
+        pagenum: this.data.pagenum,
+        pagesize: this.data.pagesize
+      }
+    }).then(res => {
+      console.log(res)
+      const { goods } = res.data.message;
+
+      if(goods.length < this.data.pagesize){
+        this.setData({
+          hasUnderline:false
+        })
+      }
+
+      const newGoods = goods.map(v => {
+        v.goods_price = v.goods_price + ".00";
+        // v.goods_price = Number(v.goods_price).toFixed(2);
+        return v
+      })
+      this.setData({
+        product_list: this.data.product_list.concat(newGoods)
+      })
+    })
   },
   
   handleTapLick(event){
@@ -23,21 +57,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      request({
-        url:"/goods/search?query="+ "小米"
-      }).then(res=>{
-        console.log(res)
-        const { goods } = res.data.message;
+
+    this.getData()
+      // request({
+      //   url:"/goods/search",
+      //   data:{
+      //     query:"小米",
+      //     pagenum:this.data.pagenum,
+      //     pagesize:this.data.pagesize
+      //   }
+      // }).then(res=>{
+      //   console.log(res)
+      //   const { goods } = res.data.message;
         
-        const newGoods = goods.map( v=>{
-          v.goods_price = v.goods_price + ".00" ;
-          // v.goods_price = Number(v.goods_price).toFixed(2);
-          return v
-        })
-        this.setData({
-          product_list: newGoods
-        })
-      })
+      //   const newGoods = goods.map( v=>{
+      //     v.goods_price = v.goods_price + ".00" ;
+      //     // v.goods_price = Number(v.goods_price).toFixed(2);
+      //     return v
+      //   })
+      //   this.setData({
+      //     product_list: newGoods
+      //   })
+      // })
   },
+
+  /**
+   * 到达底部时触发
+   */
+  onReachBottom:function(){
+    // console.log("123")
+    if(!this.data.hasUnderline){
+      return
+    }
+    this.setData({
+      pagenum:this.data.pagenum + 1
+    })
+    this.getData()
+  }
+
 
 })

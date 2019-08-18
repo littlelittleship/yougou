@@ -17,7 +17,7 @@
 
 <!-- 商品列表 -->
 <view class="product_list">
-    <navigator class="product_link" url=""
+    <navigator class="product_link" url="/pages/goods_detail/index?id={{item.goods_id}}"
     wx:for="{{ product_list }}"
     wx:key="{{ index }}">
       <view class="pruduct_list_content">
@@ -32,4 +32,8 @@
           </view>
       </view>
     </navigator>
+</view>
+
+<view class="bottom">
+    {{ hasUnderline ? '下拉加载更多' : '我也是有底线的' }}
 </view>

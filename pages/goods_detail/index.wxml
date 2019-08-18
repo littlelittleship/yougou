@@ -1,0 +1,53 @@
+<!-- 轮播图 -->
+<swiper indicator-dots
+autoplay
+class="carousel" >
+  <block 
+  wx:for="{{ image_list.pics }}"
+  wx:key="{{ index }}">
+    <swiper-item>
+      <!-- 坑爹图片，上下有留白 -->
+      <image src="{{item.pics_big}}" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 价格 -->
+<view class="price">
+  ￥{{ image_list.goods_price }}
+</view>
+
+<!-- 描述 -->
+<view class="desc">
+  <view class="desc_cont">{{ image_list.goods_name }}</view>
+  <view class="desc_star">
+    <icon class="iconfont icon-shoucang"></icon>
+    <view class="desc_store">收藏</view>
+  </view>
+</view>
+
+<view class="pass">
+  快递：  免运费
+</view>
+
+<!-- 富文本 -->
+<rich-text nodes="{{ image_list.goods_introduce }}" ></rich-text>
+
+<view class="footer">
+  <button class="btn_contacr" open-type="contact">联系客服</button>
+
+  <view class="footer_left">
+    <view class="contact">
+      <icon class="iconfont icon-kefu"></icon>
+      <view>联系客服</view>
+    </view>
+    <view class="cart">
+      <icon class="iconfont icon-gouwuche"></icon>
+      <view>购物车</view>
+    </view>
+  </view>
+  <view class="footer_right">
+    <view class="join_cart">加入购物车</view>
+    <view class="buy">立即购买</view>
+  </view>
+</view>
