@@ -41,10 +41,10 @@ class="carousel" >
       <icon class="iconfont icon-kefu"></icon>
       <view>联系客服</view>
     </view>
-    <view class="cart">
+    <navigator url="/pages/cart/index" open-type="switchTab" class="cart">
       <icon class="iconfont icon-gouwuche"></icon>
       <view>购物车</view>
-    </view>
+    </navigator>
   </view>
   <view class="footer_right">
     <view class="join_cart">加入购物车</view>

@@ -1,1 +1,149 @@
-/* pages/cart/index.wxss */
+.container{
+  background: f4f4f4;
+}
+.user{
+  padding:20rpx;
+  font-size: 14px;
+  color:#333;
+  background: #fff;
+}
+.user-info{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom:20rpx;
+}
+.user-info .user_tel{
+  margin-right:40rpx;
+}
+.user-info .user_tel::after{
+  display: block;
+  content:'';              
+  width:6px;
+  height: 6px;
+  border-top:1px solid #666;
+  border-right:1px solid #666;
+  position: absolute;
+  top:30rpx;
+  right:20rpx;
+  transform: rotate(45deg)
+}
+
+.image_apart{
+  display: block;
+  width:750rpx;
+  height: 15rpx;
+  margin-bottom:30rpx;
+}
+
+.title{
+  padding:0 20rpx 30rpx;
+  border-bottom:1px solid #eee;
+}
+.title_life{
+  margin-left:20rpx;
+}
+
+.product{
+  display: flex;
+  margin-top:20rpx;
+  background: #fff;
+}
+.product .selected{
+  width:90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product .product_detail{
+  flex: 1;
+  display: flex;
+  padding-bottom:20rpx;
+  border-bottom: 1px solid #eee;
+}
+.product_detail image{
+  width:180rpx;
+  height:180rpx;
+  margin-right: 20rpx;
+
+}
+.product_detail .product_right{
+  flex: 1;
+  font-size: 14px;
+  padding-right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pro_desc{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+}
+.pro_left_btm{
+  display: flex;
+  justify-content: space-between;
+}
+.pro_price{
+  color: red;
+  font-size: 16px;
+}
+.pro_num{
+  display: flex;
+}
+.num_num{
+  margin:0 20rpx;
+}
+.num_dec,
+.num_add{
+  width:40rpx;
+  height:40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border:2px solid #666;
+}
+
+.footer{
+  display: flex;
+  height: 100rpx;
+  width:100%;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  bottom:0;
+}
+.selet_all{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.txt_all{
+  margin-left: 20rpx;
+}
+.total{
+  font-size: 14px;
+  flex: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.spec_price{
+  color:red;
+  font-size: 16px;
+}
+.total_top{
+  display: flex;
+}
+.trans_fare{
+  color:#666;
+}
+.acount{
+  flex: 1;
+  line-height: 100rpx;
+  color:#fff;
+  background: red;
+  text-align: center;
+  font-size: 16px;
+}

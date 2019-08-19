@@ -1,2 +1,50 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="container">
+  <view class="user">
+      <view class="user-info">
+          <view class="user_info">收货人：杨</view>
+          <view class="user_tel"> 13124455765</view>
+      </view>
+      <view class="user_address">收货地址：召唤师峡谷大龙墙背后草丛</view>
+  </view>
+  <image src="../../images/cart_border@2x.png" class="image_apart" mode="aspertFill"></image>
+
+  <view class="title">
+    <icon class="iconfont icon-dianpu"></icon>
+    <text class="title_life">优购生活馆</text>
+  </view>
+
+  <view class="product">
+    <icon type="success" size="16" class="selected"></icon>
+    <view class="product_detail">
+      <image src="https://img14.360buyimg.com/da/s590x470_jfs/t1/10948/10/9980/72414/5c5305b5Edce4a04b/20daff1deee4ea76.jpg.webp"></image>
+      <view class="product_right">
+        <view class="pro_desc">JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务,为您提供</view>
+        <view class="pro_left_btm">
+          <view class="pro_price">￥279</view>
+          <view class="pro_num">
+            <view class="num_dec">-</view>
+            <text class="num_num">3</text>
+            <view class="num_add">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="selet_all">
+      <icon type="success" size="16"></icon>
+      <text class="txt_all">全选</text>
+    </view>
+    <view class="total">
+      <view class="total_top">
+      合计：
+      <text class="spec_price">￥114542.00</text>
+      </view>
+      <view class="trans_fare">包含运费</view>
+    </view>
+    <view class="acount">
+      结算
+    </view>
+  </view>
+</view>

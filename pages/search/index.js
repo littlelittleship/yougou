@@ -41,9 +41,9 @@ Page({
     })
 
     wx.setStorageSync('history', this.data.history)
-    // wx.navigateTo({
-    //   url:'/pages/search_list/index?keyword='+ value
-    // })
+    wx.navigateTo({
+      url:'/pages/search_list/index?keyword='+ value
+    })
   },
 
   /**
