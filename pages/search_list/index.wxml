@@ -2,7 +2,7 @@
 <view class="search">
     <view class="search_content">
         <icon type="search"></icon>
-        <view>小米</view>
+        <view>{{ keyword }}</view>
     </view>
 </view>
 

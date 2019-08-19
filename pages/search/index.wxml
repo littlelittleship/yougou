@@ -1,0 +1,23 @@
+<view class="search">
+  <view class="search_content">
+    <icon type="search" size="16"></icon>
+    <input placeholder="请输入你想要的商品" value="" 
+    bindinput="handleInput"
+    bindconfirm="handleSearch"></input>
+  </view>
+  <view class="cancel" wx:if="{{ inputValue }}">取消</view>
+</view>
+
+<view class="history">
+  <view class="history_title">
+    <view class="history_search">历史搜索</view>
+    <icon type="clear" size="16"  bindtap="handleCancel"></icon>
+  </view>
+  <view class="spec_search">
+    <navigator
+    url="/pages/search_list/index?keyword={{ item }}"
+    class="search-item"
+    wx:for="{{ history }}"
+    wx:key="{{ index }}">{{ item }}</navigator>
+  </view>
+</view>

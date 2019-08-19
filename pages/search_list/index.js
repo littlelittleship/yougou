@@ -12,17 +12,20 @@ Page({
     product_list:[],
     pagenum:1,
     pagesize:10,
-    hasUnderline:true
+    hasUnderline:true,
+    keyword:''            //关键字定义在最外面，防止需要函数传参
   },
 
   /**
    * 封装请求数据的方法
+   * 重难点：将查询关键字定义在外面，onload中通过options参数赋值
    */
   getData(){
+    const { keyword,pagenum,pagesize } = this.data
     request({
       url: "/goods/search",
       data: {
-        query: "曲面电视",
+        query: keyword,
         pagenum: this.data.pagenum,
         pagesize: this.data.pagesize
       }
@@ -57,7 +60,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(options)
+    const { keyword } = options;
+    this.setData({
+      keyword
+    })
     this.getData()
       // request({
       //   url:"/goods/search",
