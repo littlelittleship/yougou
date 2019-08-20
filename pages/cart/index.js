@@ -8,7 +8,8 @@ Page({
     user_info:{
       userName:'',
       user_tel:'',
-      user_address:''
+      user_address:'',
+      allPrice:0          //总价格
     },
 
     goods:{}
@@ -55,7 +56,22 @@ Page({
     this.setData({
       goods
     })
-  }
+    this.getAllPrice()
+  },
 
+  /**
+   * 计算总价格
+   * 很多地方都要用到，封装成一个函数
+   */
+  getAllPrice(){
+    let price = 0;
+    const { goods } = this.data
+    Object.keys(goods).forEach( v=>{
+      price += goods[v].goods_price * goods[v].num
+    })
+    this.setData({
+      allPrice:price
+    })
+  }
  
 })

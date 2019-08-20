@@ -45,7 +45,7 @@
     <view class="total">
       <view class="total_top">
       合计：
-      <text class="spec_price">￥114542.00</text>
+      <text class="spec_price">￥{{ allPrice }}</text>
       </view>
       <view class="trans_fare">包含运费</view>
     </view>

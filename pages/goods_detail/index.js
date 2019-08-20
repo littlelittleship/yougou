@@ -43,6 +43,11 @@ Page({
    * 先从本地获取商品列表数据，注意设置默认值
    * 获取商品的id，将该商品的信息存储在本地
    * 给商品添加两个属性，number和是否被选中（默认被选中），
+   * 以上配合cart页面完成数据的显示
+   * 还需几个需求：
+   * 添加加入购物车的提示
+   * 重复添加相同商品时数量加1，因为存储的是对象不是数组，不做处理的话，不会添加同名的对象
+   * 暂时还不行
    */
   handleAddToCart(){
     const goodsList = wx.getStorageSync('goodsList') || {}
@@ -50,9 +55,23 @@ Page({
     const { image_list } = this.data
     image_list.num = 1
     image_list.selected = true
+
+    Object.keys(goodsList).forEach( v=>{
+      const { goods_id } = this.data
+      if( goods_id === goodsList[v].goods_id){
+        goodsList[v].num += 1
+      }
+    })
+
     // 注意这个写法
     goodsList[image_list.goods_id] = image_list
     wx.setStorageSync("goodsList",goodsList)
+
+    wx.showToast({
+      title: '添加到购物车成功',
+      icon: 'success',
+      duration: 2000
+    })
   }
 
 })
