@@ -19,7 +19,9 @@
     <view class="product"
     wx:for="{{ goods }}"
     wx:key="{{ index }}">
-      <icon type="success" size="16" class="selected" color="{{ item.selected ? 'red' : 'gray' }}"></icon>
+      <icon type="success" size="16"
+       class="selected" color="{{ item.selected ? 'red' : 'gray' }}"
+       bindtap="handleSelectChange" data-id="{{ item.goods_id }}"></icon>
       <view class="product_detail">
         <image src="{{item.goods_small_logo}}"></image>
         <view class="product_right">

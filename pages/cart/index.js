@@ -60,6 +60,25 @@ Page({
   },
 
   /**
+   * 单个商品的选中事件
+   * 需要实现：
+   * 1.点击状态改变（本地存储的数据改变），颜色改变
+   * 2.总价格发生变化，修改总价格函数，并引用
+   */
+  handleSelectChange(options){
+    // console.log(options)
+    const { id } = options.currentTarget.dataset;
+    // console.log(id)
+    const { goods } = this.data;
+    goods[id].selected = !goods[id].selected;
+    this.setData({
+      goods
+    })
+    wx.setStorageSync('goodsList', goods)
+    this.getAllPrice()
+  },
+
+  /**
    * 计算总价格
    * 很多地方都要用到，封装成一个函数
    */
@@ -67,7 +86,9 @@ Page({
     let price = 0;
     const { goods } = this.data
     Object.keys(goods).forEach( v=>{
-      price += goods[v].goods_price * goods[v].num
+      if(goods[v].selected){
+        price += goods[v].goods_price * goods[v].num
+      }
     })
     this.setData({
       allPrice:price
