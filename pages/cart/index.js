@@ -79,6 +79,61 @@ Page({
   },
 
   /**
+   * 商品数量增加
+   * 实现的功能：
+   * 1.数量加1
+   * 2.若为选中状态，总价格发生改变，就是重新调用总价格函数
+   */
+  handleAdd(options){
+    const { id } = options.currentTarget.dataset
+    const { goods } = this.data
+    goods[id].num +=1
+    this.setData({
+      goods
+    })
+    wx.setStorageSync('goodsList', goods)
+    this.getAllPrice()
+  },
+
+  /**
+   * 商品数量减少
+   * 实现的功能
+   * 1.数量减去1
+   * 2.价格变动
+   * 3.若数量为0，提示用户是否删除该商品
+   */
+  handleReduce(options){
+    const { id } = options.currentTarget.dataset
+    const { goods } = this.data
+    if (goods[id].num === 1){
+      wx.showModal({
+        title: '提示',
+        content: '确定要删除这个商品吗',
+        success:(res)=> {
+          if (res.confirm) {
+            // console.log('用户点击确定')
+            delete goods[id]
+            this.setData({
+              goods
+            })
+            wx.setStorageSync('goodsList', goods)
+            this.getAllPrice()
+          }
+        }
+      })
+    }else{
+      goods[id].num -= 1
+      this.setData({
+        goods
+      })
+      wx.setStorageSync('goodsList', goods)
+      this.getAllPrice()
+    }
+   
+  },
+
+
+  /**
    * 计算总价格
    * 很多地方都要用到，封装成一个函数
    */

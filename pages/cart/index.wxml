@@ -29,9 +29,9 @@
           <view class="pro_left_btm">
             <view class="pro_price">￥{{ item.goods_price }}</view>
             <view class="pro_num">
-              <view class="num_dec">-</view>
+              <view class="num_dec" bindtap="handleReduce" data-id="{{ item.goods_id }}">-</view>
               <text class="num_num">{{ item.num }}</text>
-              <view class="num_add">+</view>
+              <view class="num_add" bindtap="handleAdd" data-id="{{ item.goods_id }}">+</view>
             </view>
           </view>
         </view>
