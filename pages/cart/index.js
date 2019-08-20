@@ -11,7 +11,7 @@ Page({
       user_address:'',
       allPrice:0          //总价格
     },
-
+    selectAll:true,
     goods:{}
   },
 
@@ -50,9 +50,26 @@ Page({
    * 傻吊，单词都写错了
    * 然后遍历对象（对象也是能遍历的，用法跟数组相同）
    * 替换静态数据，注意选中状态有selected属性决定，用三元表达式
+   * 
+   * 也需要跑断全选的状态，基本ok，代码还需优化封装
    */
   onShow: function(){
     const goods = wx.getStorageSync('goodsList')
+
+    //处理全选按钮
+    let flag = true
+    Object.keys(goods).forEach(v => {
+      if (!flag) return
+      const { selected } = goods[v]
+      if (!selected) {
+        flag = false
+      }
+    })
+
+    this.setData({
+      selectAll: flag
+    })
+
     this.setData({
       goods
     })
@@ -71,6 +88,23 @@ Page({
     // console.log(id)
     const { goods } = this.data;
     goods[id].selected = !goods[id].selected;
+
+    //处理全选按钮
+    let flag = true
+    Object.keys(goods).forEach( v=>{
+      if(!flag) return
+      const { selected } = goods[v]
+      if(!selected){
+        flag = false
+      }
+    })
+
+    
+    this.setData({
+      selectAll:flag
+    })
+    
+
     this.setData({
       goods
     })
@@ -130,6 +164,28 @@ Page({
       this.getAllPrice()
     }
    
+  },
+
+  /**
+   * 全选按钮
+   * 改变自身的状态
+   * 按下全选，再次按下全不选
+   */
+  handleSelectAll(){
+    // console.log(123)
+    let { selectAll,goods } = this.data
+    selectAll = !selectAll
+    this.setData({
+      selectAll
+    })
+    Object.keys(goods).forEach( v=>{
+      goods[v].selected = selectAll
+    })
+    this.setData({
+      goods
+    })
+    wx.setStorageSync('goodsList', goods)
+    this.getAllPrice()
   },
 
 

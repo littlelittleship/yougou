@@ -41,7 +41,8 @@
 
   <view class="footer">
     <view class="selet_all">
-      <icon type="success" size="16"></icon>
+      <icon type="success" size="16"
+      bindtap="handleSelectAll"  color="{{ selectAll ? 'red' : 'gray' }}"></icon>
       <text class="txt_all">全选</text>
     </view>
     <view class="total">
