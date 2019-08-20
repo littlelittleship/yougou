@@ -31,7 +31,7 @@ Page({
         pagesize: pagesize
       }
     }).then(res => {
-      console.log(res)
+      // console.log(res)
       const { goods } = res.data.message;
 
       if(goods.length < this.data.pagesize){

@@ -5,19 +5,21 @@
   padding:20rpx;
   font-size: 14px;
   color:#333;
-  background: #fff;
+  background: white; 
 }
 .user-info{
   display: flex;
   justify-content: space-between;
   margin-bottom:20rpx;
+  background: #fff;
 }
 .user-info .user_tel{
   margin-right:40rpx;
 }
 .user::after{
   display: block;
-  content:'';              
+  content:'';
+  background: #fff;              
   width:6px;
   height: 6px;
   border-top:1px solid #666;

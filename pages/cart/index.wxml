@@ -1,10 +1,10 @@
 <view class="container">
   <view class="user" bindtap="handleGetAddress" wx:if="{{ user_info.userName }}">
       <view class="user-info">
-          <view class="user_info">收货人：杨</view>
-          <view class="user_tel"> 13124455765</view>
+          <view class="user_info">收货人：{{user_info.userName}}</view>
+          <view class="user_tel"> {{ user_info.user_tel }}</view>
       </view>
-      <view class="user_address">收货地址：召唤师峡谷大龙墙背后草丛</view>
+      <view class="user_address">收货地址：{{ user_info.user_address }}</view>
   </view>
 
   <view class="user" bindtap="handleGetAddress" wx:if="{{ !user_info.userName }}">点击添加收货地址</view>
@@ -15,18 +15,22 @@
     <text class="title_life">优购生活馆</text>
   </view>
 
-  <view class="product">
-    <icon type="success" size="16" class="selected"></icon>
-    <view class="product_detail">
-      <image src="https://img14.360buyimg.com/da/s590x470_jfs/t1/10948/10/9980/72414/5c5305b5Edce4a04b/20daff1deee4ea76.jpg.webp"></image>
-      <view class="product_right">
-        <view class="pro_desc">JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务,为您提供</view>
-        <view class="pro_left_btm">
-          <view class="pro_price">￥279</view>
-          <view class="pro_num">
-            <view class="num_dec">-</view>
-            <text class="num_num">3</text>
-            <view class="num_add">+</view>
+  <view class="product_container" style="padding-bottom:100rpx">
+    <view class="product"
+    wx:for="{{ goods }}"
+    wx:key="{{ index }}">
+      <icon type="success" size="16" class="selected" color="{{ item.selected ? 'red' : 'gray' }}"></icon>
+      <view class="product_detail">
+        <image src="{{item.goods_small_logo}}"></image>
+        <view class="product_right">
+          <view class="pro_desc">{{ item.goods_name }}</view>
+          <view class="pro_left_btm">
+            <view class="pro_price">￥{{ item.goods_price }}</view>
+            <view class="pro_num">
+              <view class="num_dec">-</view>
+              <text class="num_num">{{ item.num }}</text>
+              <view class="num_add">+</view>
+            </view>
           </view>
         </view>
       </view>

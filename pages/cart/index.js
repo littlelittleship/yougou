@@ -9,7 +9,9 @@ Page({
       userName:'',
       user_tel:'',
       user_address:''
-    }
+    },
+
+    goods:{}
   },
 
   /**
@@ -37,8 +39,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
+  
+  /**
+   * 页面出现的时候触发
+   * 实现的功能:
+   * 获取本地商品数据,赋值给goods
+   * 傻吊，单词都写错了
+   * 然后遍历对象（对象也是能遍历的，用法跟数组相同）
+   * 替换静态数据，注意选中状态有selected属性决定，用三元表达式
+   */
+  onShow: function(){
+    const goods = wx.getStorageSync('goodsList')
+    this.setData({
+      goods
+    })
+  }
 
  
 })

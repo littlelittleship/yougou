@@ -47,7 +47,7 @@ class="carousel" >
     </navigator>
   </view>
   <view class="footer_right">
-    <view class="join_cart">加入购物车</view>
+    <view class="join_cart" bindtap="handleAddToCart">加入购物车</view>
     <view class="buy">立即购买</view>
   </view>
 </view>
