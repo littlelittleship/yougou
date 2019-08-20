@@ -14,6 +14,7 @@ Page({
     pagesize:10,
     hasUnderline:true,
     keyword:''            //关键字定义在最外面，防止需要函数传参
+  
   },
 
   /**
@@ -26,8 +27,8 @@ Page({
       url: "/goods/search",
       data: {
         query: keyword,
-        pagenum: this.data.pagenum,
-        pagesize: this.data.pagesize
+        pagenum: pagenum,
+        pagesize: pagesize
       }
     }).then(res => {
       console.log(res)

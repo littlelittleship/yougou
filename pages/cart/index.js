@@ -5,7 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
+    user_info:{
+      userName:'',
+      user_tel:'',
+      user_address:''
+    }
+  },
 
+  /**
+   * 这里注意写法，用箭头函数改变this的指向
+   * 如果不改变的话this指向dom元素，就设置不了值
+   * 函数是一个闭包
+   * wx.chooseAddress:微信提供的接口--收货地址
+   */
+  handleGetAddress(){
+    wx.chooseAddress({
+      success:res=>{                //注意
+        // console.log(res)
+        this.setData({
+          user_info:{
+            userName:res.userName,
+            user_tel:res.telNumber,
+            user_address:res.cityName + res.countyName + res.detailInfo
+          }
+        })
+      }
+    })
   },
 
   /**
@@ -15,52 +40,5 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+ 
 })

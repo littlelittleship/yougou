@@ -1,12 +1,14 @@
 <view class="container">
-  <view class="user">
+  <view class="user" bindtap="handleGetAddress" wx:if="{{ user_info.userName }}">
       <view class="user-info">
           <view class="user_info">收货人：杨</view>
           <view class="user_tel"> 13124455765</view>
       </view>
       <view class="user_address">收货地址：召唤师峡谷大龙墙背后草丛</view>
   </view>
-  <image src="../../images/cart_border@2x.png" class="image_apart" mode="aspertFill"></image>
+
+  <view class="user" bindtap="handleGetAddress" wx:if="{{ !user_info.userName }}">点击添加收货地址</view>
+  <image src="../../images/cart_border@2x.png" class="image_apart"   mode="aspertFill"></image>
 
   <view class="title">
     <icon class="iconfont icon-dianpu"></icon>

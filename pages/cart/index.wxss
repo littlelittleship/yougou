@@ -1,5 +1,5 @@
 .container{
-  background: f4f4f4;
+  background: #f4f4f4;
 }
 .user{
   padding:20rpx;
@@ -15,7 +15,7 @@
 .user-info .user_tel{
   margin-right:40rpx;
 }
-.user-info .user_tel::after{
+.user::after{
   display: block;
   content:'';              
   width:6px;
@@ -30,6 +30,7 @@
 
 .image_apart{
   display: block;
+  background: #fff;
   width:750rpx;
   height: 15rpx;
   margin-bottom:30rpx;
@@ -37,6 +38,7 @@
 
 .title{
   padding:0 20rpx 30rpx;
+  background: #fff;
   border-bottom:1px solid #eee;
 }
 .title_life{
