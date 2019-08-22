@@ -1,0 +1,37 @@
+<view class="user" bindtap="handleGetAddress">
+    <view class="user-info">
+        <view class="user_info">收货人：{{user_info.userName}}</view>
+        <view class="user_tel"> {{ user_info.user_tel }}</view>
+    </view>
+    <view class="user_address">收货地址：{{ user_info.user_address }}</view>
+</view>
+
+<image src="../../images/cart_border@2x.png" class="image_apart"   mode="aspertFill"></image>
+
+<view class="title">
+  <icon class="iconfont icon-dianpu"></icon>
+  <text class="title_life">商品列表</text>
+</view>
+
+<view class="product_container">
+  <view class="product"
+  wx:for="{{ goods }}"
+  wx:key="{{ index }}">
+    <view class="product_detail">
+      <image src="{{item.goods_small_logo}}"></image>
+      <view class="product_right">
+        <view class="pro_desc">{{ item.goods_name }}</view>
+        <view class="pro_left_btm">
+          <view class="pro_price">￥{{ item.goods_price }}</view>
+          <view class="pro_num">
+            <text class="num_num"> *{{ item.num }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="totalPrice">总价：<text>￥{{ allPrice }}</text> </view>
+
+<button type="primary" class="pay" bindtap="handlePay">支付</button>

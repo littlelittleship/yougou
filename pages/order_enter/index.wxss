@@ -1,0 +1,91 @@
+.user{
+  padding:20rpx;
+  font-size: 14px;
+  color:#333;
+  background: white; 
+}
+.user-info{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom:20rpx;
+  background: #fff;
+}
+.user-info .user_tel{
+  margin-right:40rpx;
+}
+.image_apart{
+  display: block;
+  background: #fff;
+  width:750rpx;
+  height: 15rpx;
+  margin-bottom:30rpx;
+}
+.title{
+  padding:0 20rpx 30rpx;
+  background: #fff;
+  border-bottom:1px solid #eee;
+}
+.title_life{
+  margin-left:20rpx;
+}
+
+.product{
+  display: flex;
+  margin-top:20rpx;
+  background: #fff;
+}
+.product .product_detail{
+  flex: 1;
+  display: flex;
+  padding-left:20rpx;
+  padding-right:20rpx;
+  padding-bottom:20rpx;
+  border-bottom: 1px solid #eee;
+}
+.product_detail image{
+  width:180rpx;
+  height:180rpx;
+  margin-right: 20rpx;
+
+}
+.product_detail .product_right{
+  flex: 1;
+  font-size: 14px;
+  padding-right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pro_desc{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+}
+.pro_left_btm{
+  display: flex;
+  justify-content: space-between;
+}
+.pro_price{
+  color: red;
+  font-size: 16px;
+}
+.pro_num{
+  display: flex;
+}
+.num_num{
+  margin:0 20rpx;
+}
+
+.pay{
+  margin:40rpx 20rpx;
+}
+.totalPrice{
+  margin: 30rpx;
+  color:red;
+  font-size: 14px;
+}
+.totalPrice text{
+  font-size: 20px;
+}

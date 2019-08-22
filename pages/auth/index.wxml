@@ -1,0 +1,7 @@
+<view class="auth">
+  <image src="../../images/reg_logo@2x.png" mode="aspectFill"></image>
+  <button class="btn"
+  type="primary"
+  open-type="getUserInfo"
+  bindgetuserinfo="handleGetUserInfo">授权</button>
+</view>

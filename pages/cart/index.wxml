@@ -52,7 +52,7 @@
       </view>
       <view class="trans_fare">包含运费</view>
     </view>
-    <view class="acount">
+    <view class="acount" bindtap="handleAccount">
       结算
     </view>
   </view>

@@ -204,6 +204,44 @@ Page({
     this.setData({
       allPrice:price
     })
+  },
+
+  /**
+   * 点击结算按钮触发
+   * 判断商品和用户信息是否完整，完整才能跳转，不完整给出提示
+   * 跳转到订单列表页
+   * 订单列表页显示：被选中的商品和收货地址
+   */
+  handleAccount(){
+    const { user_info, goods  } = this.data
+    if( !user_info.userName ){
+      wx.showToast({
+        title: '请输入收货地址',
+        icon:"none"
+      })
+      return
+    }
+
+    let arr = []
+    Object.keys(goods).forEach( v=>{
+      if(goods[v].selected){
+        arr.push(goods[v])
+      }
+    })
+    wx.setStorageSync('arrList', arr)
+    wx.setStorageSync('user_info', this.data.user_info)
+
+    if(arr.length === 0){
+      wx.showToast({
+        title: '请选择商品',
+        icon: "none"
+      })
+      return
+    }
+
+    wx.navigateTo({
+      url: '/pages/order_enter/index',
+    })
   }
  
 })
