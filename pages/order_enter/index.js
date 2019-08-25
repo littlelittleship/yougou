@@ -56,17 +56,39 @@ Page({
         goods_price:v.goods_price
       }
     })
+    const token = wx.getStorageSync('token')
 
     request({
       url:'/my/orders/create',
       method:"POST",
+      header:{
+        Authorization:token
+      },
       data:{
         order_price:allPrice,
         consignee_addr:`${user_info.userName} ${user_info.user_tel} ${user_info.user_address}`,
-        goods
+        goods:newGoods
       }
     }).then(res=>{
-      // console.log(res)
+      console.log(res)
+      const { order_number } = res.data.message
+      // 获取支付参数
+      // 注意Authorization可以不用加“”
+      request({
+        url:'/my/orders/req_unifiedorder',
+        method:'POST',
+        header:{     
+          Authorization:token
+        },
+        data:{
+          order_number
+        }
+      }).then( res=>{
+        // console.log(res)
+        // 直接给pay里面的信息，不用像文档那样分解
+        wx.requestPayment(res.data.message.pay)
+      })
+
     })
   }
 
